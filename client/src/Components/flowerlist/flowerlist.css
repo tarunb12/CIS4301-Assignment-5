@@ -1,16 +1,20 @@
 .backButton {
+    position: absolute;
+    left: 0;
     margin-left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.headingWrapper {
+    text-align: center;
+    position: relative;
 }
 
 .flowerNamesTable {
     background: transparent;
     position: absolute;
-    border: none;
-    
-}
-
-.tableHead {
-    border-color: none;
+    margin-top: 2rem;
 }
 
 .tableHeadElement {
@@ -21,7 +25,16 @@
     border-color: none;
 }
 
-.flowerNameLink {
-    text-decoration: none;
-    color: black;
+.tableData {
+    text-align: center;
+}
+
+.tableData:hover {
+    background: rgba(128, 128, 128, 0.2) !important;
+    cursor: pointer;
+}
+
+.flowerNamesHeader {
+	font-family: 'Cinzel', serif;
+	font-size: 3rem;
 }

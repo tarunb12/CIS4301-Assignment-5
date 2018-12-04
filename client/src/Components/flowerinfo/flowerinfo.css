@@ -19,7 +19,11 @@
 .flowerSightingsTable {
     background: transparent;
     position: absolute;
-    border: none;
+    margin-top: 2rem;
+}
+
+.tableRow:hover {
+    background: rgba(128, 128, 128, 0.2) !important;
 }
 
 .tableHeadElement {

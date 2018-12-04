@@ -1,0 +1,7 @@
+.newButton {
+    position: absolute;
+    right: 0;
+    margin-right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}

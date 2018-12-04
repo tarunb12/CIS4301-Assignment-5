@@ -25,7 +25,7 @@ class FlowerSightings extends Component {
         for (let i = 0; i < maxSightings; i++) {
             const sighting = this.state.flowerSightings[i];
             tableBody.push(
-                <tr key={i}>
+                <tr key={i} className={styles.tableRow}>
                     <td key={`${sighting.NAME} Person ${i}`} className={styles.tableData}>{sighting.PERSON}</td>
                     <td key={`${sighting.NAME} Location ${i}`} className={styles.tableData}>{sighting.LOCATION}</td>
                     <td key={`${sighting.NAME} Date ${i}`} className={styles.tableData}>{sighting.SIGHTED}</td>
@@ -46,7 +46,7 @@ class FlowerSightings extends Component {
                     <Button className={styles.backButton} bsStyle='primary' onClick={() => this.setState({ redirect: true })}>Back</Button>
                     <h3 className={styles.flowerNameHeader}>{this.props.match.params.flowerName}</h3>
                 </div>
-                <Table className={styles.flowerSightingsTable}>
+                <Table className={styles.flowerSightingsTable} hover bordered>
                     <thead className={styles.tableHead}>
                         <tr>
                             <th className={styles.tableHeadElement}>Person</th>
