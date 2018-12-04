@@ -1,0 +1,27 @@
+.backButton {
+    margin-left: 2rem;
+}
+
+.flowerNamesTable {
+    background: transparent;
+    position: absolute;
+    border: none;
+    
+}
+
+.tableHead {
+    border-color: none;
+}
+
+.tableHeadElement {
+    text-align: center;
+}
+
+.tableRow {
+    border-color: none;
+}
+
+.flowerNameLink {
+    text-decoration: none;
+    color: black;
+}

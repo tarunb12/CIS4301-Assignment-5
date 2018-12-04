@@ -1,0 +1,56 @@
+.whiteCircle {
+	position: absolute;
+	border: 3px solid white;
+	background: transparent;
+	border-radius: 50%;
+	left: calc(50% - 90px);
+	top: calc(50% - 90px);
+	width: 180px;
+	height: 180px;
+	display: flex;
+    align-items: center;
+	justify-content: center;
+}
+
+.flowerListLink {
+	font-family: 'Cinzel', serif;
+	font-size: 2rem;
+	color: white;
+	-webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    text-decoration: none;
+}
+
+.flowerListLink:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 960px) {
+    .whiteCircle {
+		left: calc(50% - 72px);
+		top: calc(50% - 72px);
+		width: 144px;
+		height: 144px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+    .whiteCircle {
+        left: calc(50% - 58px);
+        top: calc(50% - 58px);
+        width: 115px;
+        height: 115px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .whiteCircle {
+		left: calc(50% - 46px);
+		top: calc(50% - 46px);
+		width: 92px;
+		height: 92px;
+	}
+}

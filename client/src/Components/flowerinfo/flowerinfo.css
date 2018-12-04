@@ -1,0 +1,31 @@
+.headingWrapper {
+    text-align: center;
+    position: relative;
+}
+
+.backButton {
+    position: absolute;
+    left: 0;
+    margin-left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.flowerNameHeader {
+	font-family: 'Cinzel', serif;
+	font-size: 3rem;
+}
+
+.flowerSightingsTable {
+    background: transparent;
+    position: absolute;
+    border: none;
+}
+
+.tableHeadElement {
+    text-align: center;
+}
+
+.tableData {
+    text-align: center;
+}
