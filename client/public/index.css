@@ -4,9 +4,8 @@ html {
 
 body {
 	margin: 0;
-	overflow: hidden;
 }
 
-#root {
-	height: 100vh;
+.input-group {
+	width: 100% !important;
 }

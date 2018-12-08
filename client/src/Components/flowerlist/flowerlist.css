@@ -6,6 +6,24 @@
     transform: translateY(-50%);
 }
 
+.updateFlowerOnClickHeading {
+    background: transparent;
+    text-align: center;
+    width: 100%;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.addUpdateButtons {
+    position: absolute;
+    right: 0;
+    margin-right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .headingWrapper {
     text-align: center;
     position: relative;

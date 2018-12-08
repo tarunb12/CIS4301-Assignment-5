@@ -1,7 +1,15 @@
-.newButton {
-    position: absolute;
-    right: 0;
-    margin-right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
+.flowerNameError:hover {
+    cursor: pointer;
+}
+
+.locationNameError:hover {
+    cursor: pointer;
+}
+
+.newFlowerForm {
+    margin-left: 5rem;
+}
+
+.newLocationForm {
+    margin-left: 5rem;
 }

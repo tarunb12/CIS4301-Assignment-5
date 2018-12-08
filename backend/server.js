@@ -1,7 +1,7 @@
 require('dotenv').config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const logger = require("morgan");
+const express = require('express');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
 const sqlite3 = require('sqlite3').verbose();
 
 const API_PORT = 3001;
@@ -21,6 +21,13 @@ router.get('/getFlowers', (req, res) => {
 	});
 });
 
+router.get('/getFlowerNameInfo/:flowerName', (req, res) => {
+	db.all('SELECT * FROM FLOWERS WHERE COMNAME = ?', [ req.params.flowerName ], (err, data) => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true, data: data });
+	});
+});
+
 router.get('/getFlowerSightingInfo/:flowerName', (req, res) => {
 	db.all('SELECT * FROM SIGHTINGS WHERE NAME = ? ORDER BY SIGHTED DESC', [ req.params.flowerName ], (err, data) => {
 		if (err) return res.json({ success: false, error: err });
@@ -28,39 +35,18 @@ router.get('/getFlowerSightingInfo/:flowerName', (req, res) => {
 	});
 });
 
-router.post("/updateData", (req, res) => {
-	// const { id, update } = req.body;
-	// Data.findOneAndUpdate(id, update, err => {
-	// 	if (err) return res.json({ success: false, error: err });
-	// 	return res.json({ success: true });
-	// });
+router.get('/getFlowerLocations', (req, res) => {
+	db.all('SELECT DISTINCT LOCATION FROM FEATURES', (err, data) => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true, data: data });
+	});
 });
 
-router.delete("/deleteData", (req, res) => {
-	// const { id } = req.body;
-	// Data.findOneAndDelete(id, err => {
-	// 	if (err) return res.send(err);
-	// 	return res.json({ success: true });
-	// });
-});
-
-router.post("/putData", (req, res) => {
-	// let data = new Data();
-
-	// const { id, message } = req.body;
-
-	// if ((!id && id !== 0) || !message) {
-	// 	return res.json({
-	// 	success: false,
-	// 	error: "INVALID INPUTS"
-	// 	});
-	// }
-	// data.message = message;
-	// data.id = id;
-	// data.save(err => {
-	// 	if (err) return res.json({ success: false, error: err });
-	// 	return res.json({ success: true });
-	// });
+router.get('/getLocationFeatures', (req, res) => {
+	db.all('SELECT * FROM FEATURES', (err, data) => {
+		if(err) return res.json({ success: false, error: err });
+		return res.json({ success: true, data: data });
+	});
 });
 
 app.use('/api', router);

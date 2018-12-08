@@ -33,3 +33,7 @@
 .tableData {
     text-align: center;
 }
+
+.locationData:hover {
+    cursor: pointer;
+}
