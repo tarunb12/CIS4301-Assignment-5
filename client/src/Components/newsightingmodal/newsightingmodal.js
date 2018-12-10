@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import { Button, ControlLabel, FormControl, FormGroup, Modal, HelpBlock } from 'react-bootstrap';
 import DatePicker from 'react-16-bootstrap-date-picker';
 import styles from './newsightingmodal.css';
@@ -220,7 +221,11 @@ class NewSightingModal extends Component {
     getLatitudeValidationState = () => {
         const latitudeValue = this.state.fieldValues.get('latitude') || null;
         if (latitudeValue !== null) {
-            return 'success';
+            const latitudeNum = parseInt(latitudeValue);
+            if(!isNaN(latitudeNum) && isFinite(latitudeNum) && latitudeNum > 0 && latitudeNum % 1 === 0) {
+                return 'success';
+            }
+            return 'error';
         }
         return null;
     }
@@ -228,7 +233,11 @@ class NewSightingModal extends Component {
     getLongitudeValidationState = () => {
         const longitudeValue = this.state.fieldValues.get('longitude') || null;
         if (longitudeValue !== null) {
-            return 'success';
+            const longitudeNum = parseInt(longitudeValue);
+            if(!isNaN(longitudeNum) && isFinite(longitudeNum) && longitudeNum > 0 && longitudeNum % 1 === 0) {
+                return 'success';
+            }
+            return 'error'
         }
         return null;
     }
@@ -244,7 +253,11 @@ class NewSightingModal extends Component {
     getElevationValidationState = () => {
         const elevationValue = this.state.fieldValues.get('elevation') || null;
         if (elevationValue !== null) {
-            return 'success';
+            const elevationNum = parseInt(elevationValue);
+            if(!isNaN(elevationNum) && isFinite(elevationNum) && elevationNum > 0 && elevationNum % 1 === 0) {
+                return 'success';
+            }
+            return 'error';
         }
         return null;
     }

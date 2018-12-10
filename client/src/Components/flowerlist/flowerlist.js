@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+
 import { Button, ButtonGroup, Table } from 'react-bootstrap';
 import NewSightingModal from '../newsightingmodal/newsightingmodal';
 import UpdateFlowerModal from '../updateflowermodal/updateflowermodal';
@@ -56,7 +57,7 @@ class FlowerList extends Component {
                     <h3 className={styles.flowerNamesHeader}>&nbsp;</h3>
                     <ButtonGroup className={styles.addUpdateButtons}>
                         <Button className={styles.updateButton} bsStyle='primary' onClick={() => this.setState({ updateFlower: !this.state.updateFlower, showNewSightingModal: false })}>{!this.state.updateFlower ? 'Update Flower' : 'Cancel'}</Button>
-                        <UpdateFlowerModal show={this.state.showUpdateFlowerModal} handleClose={this.handleFlowerUpdateModalClose} flowerName={this.state.flowerToUpdate} />
+                        <UpdateFlowerModal show={this.state.showUpdateFlowerModal} handleClose={this.handleFlowerUpdateModalClose} flowerName={this.state.flowerToUpdate} reloadFlowerNameInfo={this.getFlowersFromDb} />
                         <Button className={styles.newButton} bsStyle='primary' onClick={() => this.setState({ showNewSightingModal: true, updateFlower: false, showUpdateFlowerModal: false })}>+ Add New Sighting</Button>
                         <NewSightingModal show={this.state.showNewSightingModal} />
                     </ButtonGroup>

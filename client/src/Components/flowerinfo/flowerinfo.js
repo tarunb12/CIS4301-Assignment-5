@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+
 import { Button, OverlayTrigger, Popover, Table } from 'react-bootstrap'
 import styles from './flowerinfo.css';
 

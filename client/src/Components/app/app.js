@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import axios from 'axios';
 
 import Main from '../main/main';
 import FlowerList from '../flowerlist/flowerlist';
@@ -8,48 +7,6 @@ import FlowerSightings from '../flowerinfo/flowerinfo';
 import styles from './app.css';
 
 class App extends Component {
-	putDataToDB = message => {
-		let currentIds = this.state.data.map(data => data.id);
-		let idToBeAdded = 0;
-		while (currentIds.includes(idToBeAdded)) {
-		++idToBeAdded;
-		}
-
-		axios.post("/api/putData", {
-		id: idToBeAdded,
-		message: message
-		});
-	};
-
-	deleteFromDB = idTodelete => {
-		let objIdToDelete = null;
-		this.state.data.forEach(dat => {
-		if (dat.id === idTodelete) {
-			objIdToDelete = dat._id;
-		}
-		});
-
-		axios.delete("/api/deleteData", {
-		data: {
-			id: objIdToDelete
-		}
-		});
-	};
-
-	updateDB = (idToUpdate, updateToApply) => {
-		let objIdToUpdate = null;
-		this.state.data.forEach(dat => {
-		if (dat.id === idToUpdate) {
-			objIdToUpdate = dat._id;
-		}
-		});
-
-		axios.post("/api/updateData", {
-			id: objIdToUpdate,
-			update: { message: updateToApply }
-		});
-	};
-
 	render() {
 		return(
 			<div className={styles.app}>
@@ -79,9 +36,3 @@ class App extends Component {
 }
 
 export default App;
-
-/* 
-<div className={styles.whiteCircle}>
-					<div className={styles.flowerListLink} unselectable='on'>Flowers</div>
-				</div>
-*/

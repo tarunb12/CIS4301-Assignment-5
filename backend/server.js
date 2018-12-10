@@ -49,6 +49,17 @@ router.get('/getLocationFeatures', (req, res) => {
 	});
 });
 
+router.post('/updateFlowerSightingInfo', (req, res) => {
+	const { oldSighting, flowerName, newSighting } = req.body;
+	const { oldSighter, oldLocation, oldDate } = oldSighting;
+	const { newSighter, newLocation, newDate } = newSighting;
+	const inputData = [ newSighter, newLocation, newDate, flowerName, oldSighter, oldLocation, oldDate ];
+	db.run('UPDATE SIGHTINGS SET PERSON = ?, LOCATION = ?, SIGHTED = ? WHERE NAME = ? AND PERSON = ? AND LOCATION = ? AND SIGHTED = ?', inputData, err => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true, data: inputData });
+	})
+});
+
 app.use('/api', router);
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
